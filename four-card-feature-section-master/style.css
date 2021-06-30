@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+/* font-family: 'Poppins', sans-serif;200, 400, 600 */
+/* Styles and classes for applying in the html markup */
+:root {
+  --teambuild: hsl(0, 78%, 62%);
+  --supervisor: hsl(180, 62%, 55%);
+  --karma: hsl(34, 97%, 64%);
+  --calci: hsl(212, 86%, 64%);
+  --txt: hsl(234, 12%, 34%);
+  --shadow: hsl(229, 6%, 66%);
+  --bgwhite: hsl(0, 0%, 98%);
+  --f200: 200;
+  --f400: 400;
+  --f600: 600;
+}
+.supervisor {
+  border-top: 0.2rem solid var(--supervisor);
+}
+.karma {
+  border-top: 0.2rem solid var(--karma);
+}
+.calculator {
+  border-top: 0.2rem solid var(--calci);
+}
+.teambuilder {
+  border-top: 0.2rem solid var(--teambuild);
+}
+.greytxt {
+  color: var(--txt);
+}
+.f200 {
+  font-weight: var(--f200);
+}
+.f400 {
+  font-weight: var(--f400);
+  font-size: 1rem;
+}
+.f600 {
+  font-weight: var(--f600);
+  font-size: 1.3rem;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+ul li {
+  text-decoration: none;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+/* Main styles start from here */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+/* div wrapping everything */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--bgwhite);
+}
+/* first part of the section */
+header {
+  text-align: center;
+  max-width: 400px;
+}
+/* just used 3 paras so had to give some margin for the last one */
+header p:nth-child(3) {
+  margin: 1rem 0;
+}
+/* The second part containing the four cards */
+.services {
+  margin-top: 2rem;
+  max-width: 300px;
+}
+/* Each card */
+.service {
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.service .f200 {
+  font-size: 0.8rem;
+}
+/* Icon in each of the cards */
+.service-icon {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+/* Media query for larger screen sizes */
+@media (min-width: 1000px) {
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: var(--bgwhite);
+  }
+  header {
+    align-self: end;
+  }
+  .services {
+    max-width: 100%;
+    padding-left: 2rem;
+    margin-top: 0;
+  }
+  /* I literally spent quite a few minutes trying to figure out why grid was not working until I realized it had to be applied to the ul not the one above */
+  .services ul {
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .service {
+    max-width: 300px;
+    margin-bottom: 0rem;
+  }
+  /* Grids make this so much easier */
+  .supervisor {
+    grid-area: 2/1/4/2;
+  }
+  .teambuilder {
+    grid-area: 1/2/3/3;
+  }
+  .karma {
+    grid-area: 3/2/5/3;
+  }
+  .calculator {
+    grid-area: 2/3/4/5;
+  }
+}
